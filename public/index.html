@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IDS — Network Monitor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    IDS // Network Monitor
+  </div>
+  <div class="header-right">
+    LIVE &nbsp;|&nbsp; AUTO-REFRESH 5s &nbsp;|&nbsp; <span id="clock"></span>
+  </div>
+</header>
+
+<main>
+
+  <!-- Stat Cards -->
+  <div class="stats-row">
+    <div class="stat-card ok">
+      <div class="stat-label">Total Packets</div>
+      <div class="stat-value" id="total-packets">—</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-label">Total Alerts</div>
+      <div class="stat-value" id="total-alerts">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">HTTP Packets</div>
+      <div class="stat-value" id="http-count">—</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-label">SSH Packets</div>
+      <div class="stat-value" id="ssh-count">—</div>
+    </div>
+  </div>
+
+  <!-- Charts Row -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-title">Packet Timeline</div>
+      <div class="chart-wrap"><canvas id="timelineChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Protocol Distribution</div>
+      <div class="chart-wrap"><canvas id="protoChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="grid-3">
+
+    <div class="panel">
+      <div class="panel-title">Alert Feed</div>
+      <div class="alert-list" id="alert-list">
+        <div class="no-data">No alerts yet — system is clean 🟢</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Top Source IPs</div>
+      <div id="top-ips">
+        <div class="no-data">Waiting for data...</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Recent Packets</div>
+      <div style="overflow-x:auto; max-height:320px; overflow-y:auto;">
+        <table class="pkt-table">
+          <thead>
+            <tr>
+              <th>Proto</th>
+              <th>Src IP</th>
+              <th>Dst Port</th>
+              <th>Size</th>
+              <th>Flags</th>
+            </tr>
+          </thead>
+          <tbody id="pkt-tbody">
+            <tr><td colspan="5" class="no-data">Waiting...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- Refresh progress bar -->
+<div class="refresh-bar"><div class="refresh-progress" id="refresh-bar"></div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
