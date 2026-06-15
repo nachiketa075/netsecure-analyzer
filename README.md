@@ -1,41 +1,14 @@
-NetSecure Analyzer
-Real-time network packet analyzer and intrusion detection system built using C++ raw sockets and Node.js dashboard.
-Features
+Network Packet Analyzer & Intrusion Detection System (IDS)
+A real-time network packet analyzer and intrusion detection system built using C++ raw sockets and a Node.js dashboard. The system captures live network traffic, analyzes TCP/UDP/ICMP packets, detects common network attacks, and visualizes alerts through a real-time web dashboard.
+Key Features
 
 Live packet capture using raw sockets
-TCP, UDP and ICMP packet analysis
+TCP, UDP, and ICMP packet analysis
 SYN Flood detection
 Port Scan detection
 ICMP Flood alerts
 JSON-based packet logging
-Real-time web dashboard
+Real-time monitoring dashboard
 
-Technologies Used
-
-C++17
-Raw Sockets
-pthreads
-Node.js
-Express.js
-HTML5
-CSS3
-JavaScript
-Chart.js
-Kali Linux
-
-Project Structure
-
-ids.cpp → packet capture and intrusion detection logic
-server.js → backend server
-public/ → frontend dashboard files
-ids_log.json → packet and alert logs
-
-How to Run
-
-Compile C++ code
-Run IDS engine
-Start Node.js server
-Open dashboard in browser
-
-Author
-Nachiketa
+Tech Stack
+C++17, Raw Sockets, pthreads, Node.js, Express.js, JavaScript, HTML5, CSS3, Chart.js, Kali Linux
